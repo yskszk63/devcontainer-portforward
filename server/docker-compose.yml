@@ -1,0 +1,14 @@
+# Launcher for debug
+name: devcontainer-portforward/server
+
+services:
+  app:
+    build: .
+    volumes:
+      - type: bind
+        source: ../data
+        target: /data
+    environment:
+      - SSHD_GATEAY_PORTS=yes
+
+# yaml-language-server: https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json

@@ -1,0 +1,7 @@
+HostKey /app/hostkey/rsa_hostkey
+AuthorizedKeysCommand /app/authorized_keys.sh
+AuthorizedKeysCommandUser user
+LogLevel DEBUG3
+AuthenticationMethods publickey
+PidFile none
+# GatewayPorts yes
