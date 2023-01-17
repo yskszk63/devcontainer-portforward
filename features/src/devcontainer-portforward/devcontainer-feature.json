@@ -3,5 +3,16 @@
   "id": "devcontainer-portforward",
   "version": "0.0.1-beta1",
   "description": "devcontainer-portforward",
-  "init": true
+  "init": true,
+  "entrypoint": "/usr/local/bin/devcontainer-portforward-entrypoint.sh",
+  "mounts": [
+    {
+      "source": "devcontainer-portforward",
+      "target": "/run/devcontainer-portforward",
+      "type": "volume"
+    }
+  ],
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
 }
