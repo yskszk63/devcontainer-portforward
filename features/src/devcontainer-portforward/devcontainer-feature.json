@@ -1,0 +1,7 @@
+{
+  "name": "devcontainer-portforward",
+  "id": "devcontainer-portforward",
+  "version": "0.0.1-beta1",
+  "description": "devcontainer-portforward",
+  "init": true
+}
