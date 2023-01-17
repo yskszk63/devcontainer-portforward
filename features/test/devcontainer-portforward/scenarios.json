@@ -1,0 +1,8 @@
+{
+  "pgrep": {
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+      "devcontainer-portforward": {}
+    }
+  }
+}
