@@ -3,8 +3,10 @@ package main
 import (
 	"context"
 	"crypto/ed25519"
+	"crypto/rand"
 	"errors"
 	"flag"
+	"fmt"
 	"io"
 	"log"
 	"net"
@@ -15,6 +17,7 @@ import (
 	"sync"
 	"syscall"
 	"time"
+	"unsafe"
 
 	"github.com/fsnotify/fsnotify"
 	netlinklistlistens "github.com/yskszk63/netlink-list-listens"
@@ -60,18 +63,31 @@ func hostkey(hostkeyPath string) (ssh.HostKeyCallback, error) {
 }
 
 func storePublickey(dir string, k []byte) (string, error) {
-	pub, err := os.CreateTemp(dir, "*.pub")
-	if err != nil {
-		return "", err
-	}
-	defer pub.Close()
+	try := 0
+	for {
+		var b [4]byte
+		if _, err := rand.Read(b[:]); err != nil {
+			return "", err
+		}
+		name := fmt.Sprintf("%08x.pub", *(*uint32)(unsafe.Pointer(&b)))
 
-	_, err = pub.Write(k)
-	if err != nil {
-		return "", err
-	}
+		fp, err := os.OpenFile(filepath.Join(dir, name), os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0o644)
+		if os.IsExist(err) {
+			if try++; try < 100 {
+				continue
+			}
+			return "", err
+		}
+		if err != nil {
+			return "", err
+		}
+		defer fp.Close()
 
-	return pub.Name(), nil
+		if _, err := fp.Write(k); err != nil {
+			return "", err
+		}
+		return fp.Name(), nil
+	}
 }
 
 func updateListens(m *map[netip.AddrPort]struct{}) ([]netip.AddrPort, []netip.AddrPort, error) {
