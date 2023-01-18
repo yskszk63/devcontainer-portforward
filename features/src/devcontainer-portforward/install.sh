@@ -6,7 +6,7 @@ set -e
 
 OS=`uname -s`
 ARCH=`uname -m`
-VERSION="0.0.1-beta3"
+VERSION="0.0.1-beta4"
 URL="https://github.com/yskszk63/devcontainer-portforward/releases/download/v${VERSION}/devcontainer-portforward_${VERSION}_${OS}_${ARCH}.tar.gz"
 
 mkdir -p /run/devcontainer-portforward
