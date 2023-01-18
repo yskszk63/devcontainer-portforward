@@ -9,7 +9,7 @@ Port forward for devcontainers. (for non vscode environments.)
 Start a server that exposes the ports.
 
 ```
-$ docker run --rm --network host --mount=type=volume,source=devcontainer-portforward,target=/data ghcr.io/yskszk63/devcontainer-portforward-server
+docker run --rm --network host --mount=type=volume,source=devcontainer-portforward,target=/data ghcr.io/yskszk63/devcontainer-portforward-server
 ```
 
 NOTE: Communication between client and server is done via unix sockets on mounted volumes.
@@ -19,7 +19,7 @@ NOTE: Communication between client and server is done via unix sockets on mounte
 Start devcontainers with the devcontainers feature, which includes an agent that forwards ports through the server.
 
 ```
-$ devcontainer up --workspace-folder . --additional-features '{"ghcr.io/yskszk63/devcontainer-portforward/devcontainer-portforward:0":{}}'
+devcontainer up --workspace-folder . --additional-features '{"ghcr.io/yskszk63/devcontainer-portforward/devcontainer-portforward:0":{}}'
 ```
 
 When listening for sockets in devcontainers, the server also listens on the same port.
