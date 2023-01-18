@@ -1,12 +1,12 @@
 {
   "name": "devcontainer-portforward",
   "id": "devcontainer-portforward",
-  "version": "0.0.1-beta5",
+  "version": "0.0.1",
   "description": "devcontainer-portforward",
   "options": {
     "version": {
       "type": "string",
-      "default": "0.0.1-beta5"
+      "default": "0.0.1"
     }
   },
   "init": true,
