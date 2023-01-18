@@ -11,7 +11,11 @@ devcontainer-portforward
 }
 ```
 
+## Options
 
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| version | - | string | 0.0.1 |
 
 
 
