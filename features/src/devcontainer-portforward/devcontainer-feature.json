@@ -3,6 +3,12 @@
   "id": "devcontainer-portforward",
   "version": "0.0.1-beta5",
   "description": "devcontainer-portforward",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "0.0.1-beta5"
+    }
+  },
   "init": true,
   "entrypoint": "/usr/local/bin/devcontainer-portforward-entrypoint.sh",
   "mounts": [
