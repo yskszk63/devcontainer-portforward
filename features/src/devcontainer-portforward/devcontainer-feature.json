@@ -1,7 +1,7 @@
 {
   "name": "devcontainer-portforward",
   "id": "devcontainer-portforward",
-  "version": "0.0.1-beta1",
+  "version": "0.0.1-beta2",
   "description": "devcontainer-portforward",
   "init": true,
   "entrypoint": "/usr/local/bin/devcontainer-portforward-entrypoint.sh",
