@@ -12,7 +12,7 @@ Start a server that exposes the ports.
 docker run --rm --network host --mount=type=volume,source=devcontainer-portforward,target=/data ghcr.io/yskszk63/devcontainer-portforward-server
 ```
 
-NOTE: Communication between client and server is done via unix sockets on mounted volumes.
+NOTE: Communication between client and server via unix sockets on mounted volumes.
 
 ### Launch devcontainer
 
